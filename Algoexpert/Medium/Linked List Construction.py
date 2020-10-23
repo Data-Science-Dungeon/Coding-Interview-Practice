@@ -20,13 +20,14 @@ class MyLinkedList:
             return -1
         else:
             node_at_index = self.head
-            for i in range(index):
+            for _ in range(index):
                 node_at_index = node_at_index.next
             return node_at_index.val
 
     def addAtHead(self, val: int) -> None:
         """
-        Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list.
+        Add a node of value val before the first element of the linked list. After the insertion,
+        the new node will be the first node of the linked list.
         """
         newnode = Node(val)
         newnode.next = self.head
@@ -39,14 +40,16 @@ class MyLinkedList:
         """
         newnode = Node(val)
         current_node = self.head
-        for i in range(self.size - 1):
+        for _ in range(self.size - 1):
             current_node = current_node.next
         current_node.next = newnode
         self.size += 1
 
     def addAtIndex(self, index: int, val: int) -> None:
         """
-        Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted.
+        Add a node of value val before the index-th node in the linked list. If index equals to
+        the length of linked list, the node will be appended to the end of linked list.
+        If index is greater than the length, the node will not be inserted.
         """
         if index < 0 or index > self.size:
             return
@@ -55,7 +58,7 @@ class MyLinkedList:
             self.addAtHead(val)
         else:
             current_node = self.head
-            for i in range(index - 1):
+            for _ in range(index - 1):
                 current_node = current_node.next
             node = Node(val)
             node.next = current_node.next
@@ -74,7 +77,7 @@ class MyLinkedList:
         if index == 0:
             self.head = current_node.next
         else:
-            for i in range(index - 1):
+            for _ in range(index - 1):
                 current_node = current_node.next
             current_node.next = current_node.next.next
 
